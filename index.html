@@ -3,410 +3,488 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hrisit Biswas — Data Engineer &amp; Machine Learning</title>
-<meta name="description" content="Data Engineer with 2 years building production pipelines on Azure Databricks and AWS, and machine learning and LLM-backed services in Python. Live projects in pharmacovigilance signal detection, EEG seizure detection, and football analytics.">
+<title>Hrisit Biswas — Data &amp; Machine Learning Engineer</title>
+<meta name="description" content="Data Engineer with 2 years building production pipelines on Azure Databricks and AWS, and machine learning and LLM-backed services in Python. Signal detection across 20.7M FDA reports, seizure detection on 980 hours of clinical EEG, and a live football prediction engine.">
 <meta name="author" content="Hrisit Biswas">
-<meta property="og:title" content="Hrisit Biswas — Data Engineer &amp; Machine Learning">
-<meta property="og:description" content="Production data pipelines on Azure Databricks and AWS. Machine learning and LLM-backed services in Python.">
+<link rel="canonical" href="https://mor64ph.github.io/">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230d9488'/><text y='68' x='50' text-anchor='middle' font-size='56' font-family='system-ui' font-weight='700' fill='white'>H</text></svg>">
+<meta property="og:url" content="https://mor64ph.github.io/">
+<meta property="og:title" content="Hrisit Biswas — Data &amp; Machine Learning Engineer">
+<meta property="og:description" content="Production pipelines on Azure Databricks and AWS. ML and LLM-backed services in Python — pharmacovigilance signal detection, clinical EEG, football analytics.">
+<meta property="og:image" content="https://mor64ph.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hrisit Biswas — Data &amp; Machine Learning Engineer">
+<meta name="twitter:description" content="Production pipelines on Azure Databricks and AWS. ML and LLM-backed services in Python.">
+<meta name="twitter:image" content="https://mor64ph.github.io/og.png">
+<meta name="theme-color" content="#0a0e13">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%2314b8a6'/><text y='70' x='50' text-anchor='middle' font-size='58' font-family='Segoe UI,system-ui' font-weight='700' fill='%23062925'>H</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Hrisit Biswas",
+"jobTitle":"Data Engineer","email":"hrisitbiswas80@gmail.com",
+"url":"https://mor64ph.github.io/",
+"address":{"@type":"PostalAddress","addressLocality":"Bangalore","addressCountry":"IN"},
+"alumniOf":{"@type":"CollegeOrUniversity","name":"Narula Institute of Technology"},
+"worksFor":{"@type":"Organization","name":"Accenture"},
+"knowsAbout":["Data Engineering","Apache Spark","Azure Databricks","Machine Learning","Delta Lake","Python","SQL"],
+"sameAs":["https://github.com/mor64ph","https://linkedin.com/in/hrisit-biswas"]}
+</script>
 <style>
+/* ============================== TOKENS ============================== */
 :root{
-  --bg:#0b0f14; --bg-2:#111820; --bg-3:#161f2a;
-  --ink:#e6edf3; --ink-2:#a9b6c3; --ink-3:#71808f;
-  --accent:#2dd4bf; --accent-2:#0d9488; --accent-ink:#04231f;
-  --rule:#1f2a36; --rule-2:#2a3846;
-  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
-  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  --max:1080px;
+  --bg:#0a0e13; --surface:#111720; --surface-2:#161d27; --surface-3:#1c2531;
+  --ink:#eaf0f6; --ink-2:#9dabb9; --ink-3:#788694;
+  --accent:#2dd4bf; --accent-dim:#14b8a6; --accent-glow:rgba(45,212,191,.13);
+  --on-accent:#04211d;
+  --line:#1e2733; --line-2:#2a3543;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+  --shadow-lg:0 2px 4px rgba(0,0,0,.3), 0 24px 48px -20px rgba(0,0,0,.75);
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Consolas,monospace;
+  --max:1120px;
+  --r:14px;
 }
 [data-theme="light"]{
-  --bg:#fbfcfd; --bg-2:#fff; --bg-3:#f2f6f9;
-  --ink:#0f1c24; --ink-2:#44555f; --ink-3:#6d7d88;
-  --accent:#0d7d72; --accent-2:#0d9488; --accent-ink:#ffffff;
-  --rule:#e1e8ed; --rule-2:#cfdae2;
+  --bg:#fcfdfe; --surface:#ffffff; --surface-2:#f5f8fa; --surface-3:#eef3f7;
+  --ink:#0c1620; --ink-2:#4a5a68; --ink-3:#647480;
+  --accent:#0b7d70; --accent-dim:#0a7368; --accent-glow:rgba(13,148,136,.09);
+  --on-accent:#ffffff;
+  --line:#e3eaef; --line-2:#cdd9e2;
+  --shadow:0 1px 2px rgba(16,40,60,.05), 0 8px 24px -14px rgba(16,40,60,.16);
+  --shadow-lg:0 2px 6px rgba(16,40,60,.07), 0 24px 48px -22px rgba(16,40,60,.24);
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:80px; -webkit-text-size-adjust:100%}
 body{
   margin:0; background:var(--bg); color:var(--ink);
   font-family:var(--sans); font-size:16px; line-height:1.65;
-  -webkit-font-smoothing:antialiased;
+  font-feature-settings:'cv11','ss01'; -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
 }
 a{color:var(--accent); text-decoration:none}
-a:hover{text-decoration:underline}
-.wrap{max-width:var(--max); margin:0 auto; padding:0 24px}
+h1,h2,h3,h4{line-height:1.15; letter-spacing:-.022em; margin:0}
+::selection{background:var(--accent); color:var(--on-accent)}
+:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:4px}
+.wrap{max-width:var(--max); margin:0 auto; padding:0 28px}
+@media(max-width:560px){ .wrap{padding:0 20px} }
 
-/* ---------- nav ---------- */
-nav{
-  position:sticky; top:0; z-index:50;
-  background:color-mix(in srgb, var(--bg) 88%, transparent);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--rule);
-}
-nav .wrap{display:flex; align-items:center; gap:8px; height:56px}
-.brand{font-weight:700; letter-spacing:-.01em; margin-right:auto; font-size:15px}
-.brand span{color:var(--accent)}
-nav a.nl{
-  color:var(--ink-2); font-size:13.5px; padding:6px 10px; border-radius:6px;
-}
-nav a.nl:hover{color:var(--ink); background:var(--bg-3); text-decoration:none}
-#themeBtn{
-  background:var(--bg-3); border:1px solid var(--rule-2); color:var(--ink-2);
-  width:32px; height:32px; border-radius:8px; cursor:pointer; font-size:14px;
-  display:grid; place-items:center; margin-left:4px;
-}
-#themeBtn:hover{color:var(--ink); border-color:var(--accent)}
-@media(max-width:720px){ nav a.nl{display:none} }
+.skip{position:absolute; left:-9999px; top:0; background:var(--accent); color:var(--on-accent);
+  padding:10px 18px; z-index:200; border-radius:0 0 8px 0; font-weight:600}
+.skip:focus{left:0}
 
-/* ---------- hero ---------- */
-header{padding:76px 0 56px; border-bottom:1px solid var(--rule)}
-.eyebrow{
-  font-family:var(--mono); font-size:12px; letter-spacing:.14em;
-  text-transform:uppercase; color:var(--accent); margin:0 0 14px;
-}
-h1{
-  font-size:clamp(2.1rem,6vw,3.4rem); line-height:1.08; margin:0 0 18px;
-  letter-spacing:-.03em; font-weight:700;
-}
-.lede{font-size:clamp(1rem,2.2vw,1.15rem); color:var(--ink-2); max-width:65ch; margin:0 0 26px}
+/* ============================== NAV ============================== */
+#bar{position:fixed; top:0; left:0; height:2px; background:var(--accent); width:0; z-index:101; transition:width .1s linear}
+nav{position:sticky; top:0; z-index:100; background:color-mix(in srgb,var(--bg) 82%,transparent);
+  backdrop-filter:blur(14px) saturate(1.5); border-bottom:1px solid transparent; transition:border-color .3s}
+nav.stuck{border-bottom-color:var(--line)}
+nav .wrap{display:flex; align-items:center; gap:4px; height:62px}
+.brand{font-weight:700; font-size:15.5px; letter-spacing:-.02em; margin-right:auto; color:var(--ink)}
+.brand i{color:var(--accent); font-style:normal}
+.nl{position:relative; color:var(--ink-2); font-size:13.5px; font-weight:500; padding:8px 12px; border-radius:7px; transition:color .2s}
+.nl:hover{color:var(--ink)}
+.nl.on{color:var(--accent)}
+.nl.on::after{content:""; position:absolute; left:12px; right:12px; bottom:2px; height:1.5px; background:var(--accent); border-radius:2px}
+#theme{margin-left:8px; width:40px; height:40px; display:grid; place-items:center; cursor:pointer;
+  background:var(--surface-2); border:1px solid var(--line-2); border-radius:10px; color:var(--ink-2); transition:.2s}
+#theme:hover{color:var(--accent); border-color:var(--accent)}
+#theme svg{width:15px; height:15px}
+[data-theme="dark"] .sun{display:none}
+[data-theme="light"] .moon{display:none}
+@media(max-width:780px){ .nl{display:none} }
+
+/* ============================== HERO ============================== */
+header{position:relative; padding:100px 0 72px; overflow:hidden}
+header::before{content:""; position:absolute; top:-340px; left:50%; transform:translateX(-50%);
+  width:1000px; height:700px; background:radial-gradient(ellipse at center,var(--accent-glow),transparent 66%);
+  pointer-events:none}
+.status{display:inline-flex; align-items:center; gap:8px; font-size:12.5px; font-weight:500;
+  color:var(--ink-2); background:var(--surface); border:1px solid var(--line-2);
+  padding:6px 14px; border-radius:100px; margin-bottom:26px}
+.dot{width:7px; height:7px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 3px var(--accent-glow)}
+@media(prefers-reduced-motion:no-preference){ .dot{animation:pulse 2.4s ease-in-out infinite} }
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
+h1{font-size:clamp(2.3rem,6.4vw,4.1rem); font-weight:800; letter-spacing:-.04em; margin-bottom:22px}
+h1 .g{background:linear-gradient(105deg,var(--accent),var(--accent-dim)); -webkit-background-clip:text;
+  background-clip:text; -webkit-text-fill-color:transparent}
+.lede{font-size:clamp(1rem,1.9vw,1.155rem); color:var(--ink-2); max-width:63ch; margin:0 0 34px}
 .lede strong{color:var(--ink); font-weight:600}
-.links{display:flex; flex-wrap:wrap; gap:10px}
-.btn{
-  display:inline-flex; align-items:center; gap:7px;
-  padding:9px 15px; border-radius:8px; font-size:14px; font-weight:500;
-  border:1px solid var(--rule-2); color:var(--ink-2); background:var(--bg-2);
-}
-.btn:hover{border-color:var(--accent); color:var(--ink); text-decoration:none}
-.btn.primary{background:var(--accent-2); border-color:var(--accent-2); color:var(--accent-ink); font-weight:600}
-.btn.primary:hover{filter:brightness(1.1); color:var(--accent-ink)}
+.cta{display:flex; flex-wrap:wrap; gap:11px; margin-bottom:56px}
+.btn{display:inline-flex; align-items:center; gap:8px; padding:11px 18px; border-radius:10px;
+  font-size:14px; font-weight:550; border:1px solid var(--line-2); color:var(--ink-2);
+  background:var(--surface); transition:.18s ease; white-space:nowrap}
+.btn:hover{color:var(--ink); border-color:var(--accent); transform:translateY(-2px); box-shadow:var(--shadow)}
+.btn.pri{background:var(--accent-dim); border-color:var(--accent-dim); color:var(--on-accent); font-weight:600}
+.btn.pri:hover{filter:brightness(1.12); color:var(--on-accent)}
+.btn svg{width:15px; height:15px; flex:none; stroke:currentColor; fill:none; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round}
 
-/* ---------- sections ---------- */
-section{padding:60px 0; border-bottom:1px solid var(--rule)}
-section:last-of-type{border-bottom:0}
-h2{
-  font-size:13px; font-family:var(--mono); letter-spacing:.14em; text-transform:uppercase;
-  color:var(--ink-3); margin:0 0 6px; font-weight:600;
-}
-.h2sub{font-size:clamp(1.3rem,3vw,1.7rem); margin:0 0 34px; letter-spacing:-.02em; font-weight:650; line-height:1.25}
+.stats{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line);
+  border:1px solid var(--line); border-radius:var(--r); overflow:hidden}
+.stat{background:var(--surface); padding:20px 22px}
+.stat b{display:block; font-family:var(--mono); font-size:clamp(1.2rem,2.4vw,1.6rem); font-weight:600;
+  color:var(--accent); letter-spacing:-.03em; line-height:1.2}
+.stat span{display:block; font-size:12px; color:var(--ink-3); margin-top:5px; line-height:1.45}
+@media(max-width:700px){ .stats{grid-template-columns:repeat(2,1fr)} }
 
-/* ---------- projects ---------- */
-.proj{
-  background:var(--bg-2); border:1px solid var(--rule);
-  border-radius:14px; padding:26px; margin-bottom:20px;
-}
-.proj:hover{border-color:var(--rule-2)}
-.proj-top{display:flex; flex-wrap:wrap; gap:12px; align-items:baseline; margin-bottom:6px}
-.proj h3{font-size:1.22rem; margin:0; letter-spacing:-.015em; font-weight:650}
-.tag{
-  font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
-  padding:3px 8px; border-radius:20px; border:1px solid var(--rule-2); color:var(--ink-3);
-}
-.tag.live{color:var(--accent); border-color:var(--accent-2)}
-.proj .role{color:var(--ink-3); font-size:13.5px; margin:0 0 14px}
-.proj p.desc{color:var(--ink-2); margin:0 0 18px; max-width:72ch}
+/* ============================== SECTIONS ============================== */
+section{padding:84px 0; position:relative}
+section+section{border-top:1px solid var(--line)}
+.kicker{display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11.5px;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--accent); font-weight:500; margin-bottom:14px}
+.kicker::before{content:""; width:22px; height:1.5px; background:var(--accent); border-radius:2px}
+h2{font-size:clamp(1.55rem,3.4vw,2.15rem); font-weight:700; margin-bottom:12px}
+.sublede{color:var(--ink-2); max-width:62ch; margin:0 0 44px; font-size:15.5px}
 
-.metrics{
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(118px,1fr));
-  gap:1px; background:var(--rule); border:1px solid var(--rule);
-  border-radius:10px; overflow:hidden; margin:0 0 18px;
-}
-.metric{background:var(--bg-3); padding:11px 13px}
-.metric .v{font-family:var(--mono); font-size:1.02rem; color:var(--accent); font-weight:600; line-height:1.3}
-.metric .k{font-size:11px; color:var(--ink-3); line-height:1.35; margin-top:2px}
+/* ============================== PROJECTS ============================== */
+.proj{background:var(--surface); border:1px solid var(--line); border-radius:18px;
+  padding:30px; margin-bottom:22px; transition:border-color .25s, transform .25s, box-shadow .25s}
+.proj:hover{border-color:var(--line-2); transform:translateY(-3px); box-shadow:var(--shadow-lg)}
+.phead{display:flex; align-items:flex-start; gap:16px; margin-bottom:5px}
+.pnum{font-family:var(--mono); font-size:12px; color:var(--ink-3); padding-top:7px; flex:none;
+  font-weight:500; letter-spacing:.04em}
+.ptitles{flex:1; min-width:0}
+.trow{display:flex; flex-wrap:wrap; align-items:center; gap:10px}
+.proj h3{font-size:1.36rem; font-weight:700}
+.tag{font-family:var(--mono); font-size:11px; letter-spacing:.09em; text-transform:uppercase;
+  padding:4px 10px; border-radius:100px; border:1px solid var(--line-2); color:var(--ink-3); font-weight:500}
+.tag.live{color:var(--accent); border-color:var(--accent); background:var(--accent-glow)}
+.role{color:var(--ink-3); font-size:13.5px; margin:5px 0 0}
+.desc{color:var(--ink-2); margin:17px 0 21px; max-width:74ch; font-size:15px}
 
-.bullets{margin:0 0 18px; padding:0; list-style:none}
-.bullets li{
-  position:relative; padding-left:18px; margin-bottom:8px;
-  color:var(--ink-2); font-size:14.5px;
-}
-.bullets li::before{
-  content:""; position:absolute; left:2px; top:.62em;
-  width:5px; height:5px; border-radius:50%; background:var(--accent-2);
-}
-.bullets b{color:var(--ink); font-weight:600}
-code{
-  font-family:var(--mono); font-size:.88em; background:var(--bg-3);
-  padding:1px 5px; border-radius:4px; color:var(--ink); border:1px solid var(--rule);
-}
-.stack{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:16px}
-.chip{
-  font-family:var(--mono); font-size:11.5px; padding:3px 8px; border-radius:5px;
-  background:var(--bg-3); color:var(--ink-2); border:1px solid var(--rule);
-}
-.proj-links{display:flex; flex-wrap:wrap; gap:8px}
+.mx{display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:1px;
+  background:var(--line); border:1px solid var(--line); border-radius:11px; overflow:hidden; margin-bottom:21px}
+.m{background:var(--surface-2); padding:14px 16px}
+.m b{display:block; font-family:var(--mono); font-size:1.06rem; font-weight:600; color:var(--accent); letter-spacing:-.02em}
+.m span{display:block; font-size:11.5px; color:var(--ink-3); margin-top:3px; line-height:1.4}
 
-/* ---------- experience ---------- */
-.job{
-  display:grid; grid-template-columns:172px 1fr; gap:26px;
-  padding:22px 0; border-top:1px solid var(--rule);
-}
-.job:first-of-type{border-top:0; padding-top:0}
-.job .when{font-family:var(--mono); font-size:12.5px; color:var(--ink-3); padding-top:3px}
-.job h3{margin:0 0 2px; font-size:1.06rem; font-weight:650}
-.job .org{color:var(--accent); font-size:14px; margin:0 0 12px}
-@media(max-width:720px){
-  .job{grid-template-columns:1fr; gap:8px}
-  .job .when{padding-top:0}
+ul.b{margin:0 0 21px; padding:0; list-style:none}
+ul.b li{position:relative; padding-left:21px; margin-bottom:11px; color:var(--ink-2); font-size:14.5px}
+ul.b li::before{content:""; position:absolute; left:3px; top:.66em; width:6px; height:6px;
+  border-radius:50%; background:var(--accent-dim); opacity:.85}
+ul.b b{color:var(--ink); font-weight:600}
+ul.b li:last-child{margin-bottom:0}
+code{font-family:var(--mono); font-size:.86em; background:var(--surface-3); padding:2px 6px;
+  border-radius:5px; color:var(--ink); border:1px solid var(--line)}
+
+.stack{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:21px}
+.chip{font-family:var(--mono); font-size:11.5px; padding:4px 9px; border-radius:6px;
+  background:var(--surface-2); color:var(--ink-2); border:1px solid var(--line); font-weight:400}
+.plinks{display:flex; flex-wrap:wrap; gap:9px}
+@media(max-width:560px){ .proj{padding:22px} .pnum{display:none} }
+
+/* ============================== EXPERIENCE ============================== */
+.job{display:grid; grid-template-columns:188px 1fr; gap:32px; padding:30px 0; border-top:1px solid var(--line)}
+.job:first-of-type{border-top:0; padding-top:4px}
+.when{font-family:var(--mono); font-size:12.5px; color:var(--ink-3); padding-top:4px; letter-spacing:-.01em}
+.job h3{font-size:1.1rem; font-weight:650; margin-bottom:4px}
+.org{color:var(--accent); font-size:14px; margin:0 0 15px; font-weight:500}
+@media(max-width:760px){ .job{grid-template-columns:1fr; gap:10px} .when{padding-top:0} }
+
+/* ============================== SKILLS ============================== */
+.sk{display:grid; grid-template-columns:repeat(auto-fit,minmax(272px,1fr)); gap:20px}
+.skc{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:22px;
+  transition:border-color .2s}
+.skc:hover{border-color:var(--line-2)}
+.skc h4{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--accent); font-weight:600; margin-bottom:13px}
+.skc div{display:flex; flex-wrap:wrap; gap:6px}
+
+/* ============================== CONTACT ============================== */
+#contact{text-align:center}
+#contact .kicker{justify-content:center}
+#contact .kicker::before{display:none}
+#contact .sublede{margin:0 auto 34px}
+#contact .cta{justify-content:center; margin-bottom:0}
+
+/* ============================== FOOTER ============================== */
+footer{border-top:1px solid var(--line); padding:34px 0 46px; color:var(--ink-3); font-size:13px}
+footer .wrap{display:flex; flex-wrap:wrap; gap:16px; align-items:center}
+footer a{color:var(--ink-3); transition:color .2s}
+footer a:hover{color:var(--accent)}
+.push{margin-left:auto}
+@media(max-width:560px){ .push{margin-left:0} }
+
+/* ==== TOUCH TARGETS — WCAG 2.2 SC 2.5.8 needs 24px; aim for 44 ==== */
+footer a{display:inline-block; padding:12px 0; line-height:20px}
+footer .wrap{gap:4px 18px}
+@media (pointer:coarse){ #theme{width:44px;height:44px} .nl{padding:13px 12px} }
+@media (max-width:900px){
+  #theme{width:44px; height:44px}
+  .nl{padding:13px 12px}
+  footer .wrap{gap:10px 18px}
 }
 
-/* ---------- skills ---------- */
-.skills{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px}
-.sk{background:var(--bg-2); border:1px solid var(--rule); border-radius:12px; padding:18px}
-.sk h4{
-  margin:0 0 10px; font-size:11.5px; font-family:var(--mono); letter-spacing:.1em;
-  text-transform:uppercase; color:var(--accent); font-weight:600;
+/* ============ SMALL-SCREEN LEGIBILITY ============ */
+@media (max-width:600px){
+  .loc{display:none}
+  .status{font-size:12px; padding:7px 14px}
+  .tag{font-size:11px; padding:4px 10px}
+  .kicker{font-size:12px}
+  .m span{font-size:12px}
+  .m b{font-size:1.02rem}
+  .stat span{font-size:12.5px}
+  .stat b{font-size:1.35rem}
+  .chip{font-size:12px; padding:5px 10px}
+  .role{font-size:14px}
+  ul.b li{font-size:14.8px}
+  .desc{font-size:15px}
+  footer{font-size:13.5px}
+  section{padding:62px 0}
+  header{padding:76px 0 60px}
+  .btn{padding:12px 17px}
+  .stats .stat{padding:17px 18px}
 }
-.sk .items{display:flex; flex-wrap:wrap; gap:5px}
+@media (max-width:380px){
+  .wrap{padding:0 16px}
+  .proj{padding:19px}
+  .mx{grid-template-columns:1fr 1fr}
+}
 
-/* ---------- footer ---------- */
-footer{padding:44px 0 56px; color:var(--ink-3); font-size:13.5px}
-footer .wrap{display:flex; flex-wrap:wrap; gap:14px; align-items:center}
-footer a{color:var(--ink-2)}
-.spacer{margin-left:auto}
-svg.i{width:15px; height:15px; flex:none; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round}
+/* ============================== MOTION ============================== */
+@media(prefers-reduced-motion:no-preference){
+  .rv{opacity:0; transform:translateY(20px); transition:opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1)}
+  .rv.in{opacity:1; transform:none}
+}
+
+/* ============================== PRINT ============================== */
+@media print{
+  :root{--bg:#fff;--surface:#fff;--surface-2:#fff;--ink:#000;--ink-2:#222;--ink-3:#555;
+        --accent:#065f56;--line:#bbb;--line-2:#999;--shadow:none;--shadow-lg:none}
+  nav,#bar,#theme,.cta,.plinks,.status,header::before{display:none!important}
+  body{font-size:11pt} section{padding:16px 0; break-inside:avoid}
+  .proj{break-inside:avoid; border:1px solid #bbb; box-shadow:none}
+  a::after{content:" (" attr(href) ")"; font-size:8pt; color:#555; word-break:break-all}
+  a[href^="#"]::after,a[href^="mailto"]::after{content:""}
+}
 </style>
 </head>
 <body>
+<div id="bar"></div>
+<a class="skip" href="#main">Skip to content</a>
 
-<nav>
+<nav id="nav">
   <div class="wrap">
-    <span class="brand">Hrisit Biswas<span>.</span></span>
+    <span class="brand">Hrisit Biswas<i>.</i></span>
     <a class="nl" href="#work">Work</a>
     <a class="nl" href="#experience">Experience</a>
     <a class="nl" href="#skills">Skills</a>
     <a class="nl" href="#education">Education</a>
-    <button id="themeBtn" aria-label="Toggle colour theme" title="Toggle theme">◐</button>
+    <a class="nl" href="#contact">Contact</a>
+    <button id="theme" aria-label="Toggle colour theme" title="Toggle light / dark">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
   </div>
 </nav>
 
 <header>
   <div class="wrap">
-    <p class="eyebrow">Bangalore, India</p>
-    <h1>Data Engineer building<br>data and ML systems.</h1>
+    <span class="status"><span class="dot"></span> Open to Data &amp; ML Engineering roles<span class="loc"> · Bangalore, India</span></span>
+    <h1>I build data systems<br>that <span class="g">hold up to scrutiny.</span></h1>
     <p class="lede">
-      Two years shipping production pipelines on <strong>Azure Databricks</strong> and <strong>AWS</strong>
-      at Accenture — PySpark, Spark SQL, Delta Lake, and the Gold-layer models and Power BI semantic
-      layers on top of them. Outside work I build and deploy <strong>machine learning</strong> and
-      <strong>LLM-backed services</strong> in Python: signal detection over 20.7 million FDA adverse-event
-      reports, seizure detection across 980 hours of clinical EEG, and a football prediction engine
-      serving live.
+      Two years shipping production pipelines on <strong>Azure Databricks</strong> and <strong>AWS</strong> at
+      Accenture — PySpark, Spark SQL, Delta Lake, and the Gold-layer models and Power BI semantic layers on
+      top of them. Outside work I build and deploy <strong>machine learning</strong> and
+      <strong>LLM-backed services</strong> in Python, and I care most about the part most projects skip:
+      proving the numbers are real.
     </p>
-    <div class="links">
-      <a class="btn primary" href="mailto:hrisitbiswas80@gmail.com">
-        <svg class="i" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
-        hrisitbiswas80@gmail.com
+    <div class="cta">
+      <a class="btn pri" href="#work">
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg> See the work
+      </a>
+      <a class="btn" href="mailto:hrisitbiswas80@gmail.com">
+        <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2.5"/><path d="m2.5 7.5 9.5 6 9.5-6"/></svg> Email
       </a>
       <a class="btn" href="https://linkedin.com/in/hrisit-biswas" target="_blank" rel="noopener">
-        <svg class="i" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-13h4v1.5A6 6 0 0 1 16 8Z"/><circle cx="4" cy="4" r="2"/><path d="M2 9h4v12H2z"/></svg>
-        LinkedIn
+        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V8h4v1.5A6 6 0 0 1 16 8Z"/><circle cx="4" cy="4" r="2"/><path d="M2 9h4v12H2z"/></svg> LinkedIn
       </a>
       <a class="btn" href="https://github.com/mor64ph" target="_blank" rel="noopener">
-        <svg class="i" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.4 3.4 0 0 0-.94-2.61c3.14-.35 4.94-2.22 4.94-6a4.67 4.67 0 0 0-1.35-3.5 4.35 4.35 0 0 0-.12-3.26s-1.6-.49-3.53 1.35a8.5 8.5 0 0 0-5 0C8.6 2.2 7 2.69 7 2.69a4.35 4.35 0 0 0-.12 3.26A4.67 4.67 0 0 0 5.5 9.5c0 3.75 1.8 5.62 4.94 6A3.4 3.4 0 0 0 9.5 18.1V22"/></svg>
-        GitHub
+        <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.4 3.4 0 0 0-.94-2.61c3.14-.35 4.94-2.22 4.94-6a4.67 4.67 0 0 0-1.35-3.5 4.35 4.35 0 0 0-.12-3.26s-1.6-.49-3.53 1.35a8.5 8.5 0 0 0-5 0C8.6 2.2 7 2.69 7 2.69a4.35 4.35 0 0 0-.12 3.26A4.67 4.67 0 0 0 5.5 9.5c0 3.75 1.8 5.62 4.94 6A3.4 3.4 0 0 0 9.5 18.1V22"/></svg> GitHub
       </a>
-      <a class="btn" href="tel:+918777386226">
-        <svg class="i" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
-        +91 8777386226
-      </a>
+    </div>
+    <div class="stats rv">
+      <div class="stat"><b>2 yrs</b><span>Production data engineering</span></div>
+      <div class="stat"><b>20.7M</b><span>FDA reports analysed</span></div>
+      <div class="stat"><b>980 h</b><span>Clinical EEG processed</span></div>
+      <div class="stat"><b>4</b><span>Systems built end to end</span></div>
     </div>
   </div>
 </header>
 
+<main id="main">
 <section id="work">
   <div class="wrap">
-    <h2>Selected work</h2>
-    <p class="h2sub">Four systems, built end to end — ingestion, modelling, evaluation, deployment.</p>
+    <div class="rv">
+      <p class="kicker">Selected work</p>
+      <h2>Four systems, built end to end.</h2>
+      <p class="sublede">Ingestion, modelling, evaluation, deployment — each one taken past a working demo
+        to something with measured results and a validation story.</p>
+    </div>
 
-    <!-- ReportScope -->
-    <article class="proj">
-      <div class="proj-top">
-        <h3>ReportScope</h3>
-        <span class="tag live">Live</span>
-        <span class="tag">Pharmacovigilance</span>
+    <!-- 01 ReportScope -->
+    <article class="proj rv">
+      <div class="phead">
+        <span class="pnum">01</span>
+        <div class="ptitles">
+          <div class="trow"><h3>ReportScope</h3><span class="tag live">Live</span><span class="tag">Pharmacovigilance</span></div>
+          <p class="role">Drug-safety signal detection over the FDA adverse-event database</p>
+        </div>
       </div>
-      <p class="role">Drug-safety signal detection over the FDA adverse-event database</p>
-      <p class="desc">
-        A pipeline and lookup tool over openFDA FAERS that surfaces drug–reaction pairs worth a human
-        looking at. Every score is a closed-form, auditable statistic over a 2&times;2 table — the design
-        regulators require — with bias diagnostics shipped beside each result rather than buried.
-      </p>
-      <div class="metrics">
-        <div class="metric"><div class="v">33,852</div><div class="k">scored drug–reaction pairs</div></div>
-        <div class="metric"><div class="v">361</div><div class="k">drugs · 305 molecules</div></div>
-        <div class="metric"><div class="v">20.7M</div><div class="k">FAERS reports scanned</div></div>
-        <div class="metric"><div class="v">22 / 22</div><div class="k">known-answer controls pass</div></div>
+      <p class="desc">A pipeline and lookup tool over openFDA FAERS that surfaces drug–reaction pairs worth a
+        human looking at. Every score is a closed-form, auditable statistic over a 2×2 table — the design
+        regulators require — with bias diagnostics shipped beside each result rather than buried.</p>
+      <div class="mx">
+        <div class="m"><b>33,852</b><span>scored drug–reaction pairs</span></div>
+        <div class="m"><b>361</b><span>drugs · 305 molecules</span></div>
+        <div class="m"><b>20.7M</b><span>FAERS reports scanned</span></div>
+        <div class="m"><b>22 / 22</b><span>known-answer controls pass</span></div>
       </div>
-      <ul class="bullets">
+      <ul class="b">
         <li>Implemented <b>BCPNN and MGPS</b> disproportionality scoring with empirical-Bayes shrinkage —
-            five hyperparameters fitted by MLE across all 33,852 cells, so the prior is learned from the
-            data rather than assumed.</li>
-        <li>Validated against a <b>known-answer harness</b>: the pipeline reproduces the
-            statin–rhabdomyolysis reporting odds ratio of <b>12.96</b>, and independently recovered
-            cerivastatin — withdrawn in 2001 — as the highest-scoring statin without being told.</li>
+          five hyperparameters fitted by MLE across all 33,852 cells, so the prior is learned from the data
+          rather than assumed.</li>
+        <li>Validated against a <b>known-answer harness</b>: reproduces the statin–rhabdomyolysis reporting
+          odds ratio of <b>12.96</b>, and independently recovered cerivastatin — withdrawn in 2001 — as the
+          highest-scoring statin without being told.</li>
         <li>Engineered around hard API limits: <b>date-partitioned</b> the query space to defeat a
-            25,000-record pagination cap, and collected severity outcomes in <b>1,444 calls instead of
-            135,408</b> by bucketing reactions per drug per outcome.</li>
-        <li>Built an <b>active-comparator diagnostic</b> that separates molecule effects from delivery
-            artifacts — exenatide device leakage collapses from 36.23 to 1.01, showing the signal was the
-            injector, not the drug.</li>
-        <li>Deployed as a containerised Flask service with PostgreSQL, Alembic migrations, accounts,
-            email verification and a weekly digest driven by GitHub Actions.</li>
+          25,000-record pagination cap, and collected severity outcomes in <b>1,444 calls instead of
+          135,408</b> by bucketing reactions per drug per outcome.</li>
+        <li>Built an <b>active-comparator diagnostic</b> separating molecule effects from delivery artifacts —
+          exenatide device leakage collapses from 36.23 to 1.01, showing the signal was the injector, not
+          the drug.</li>
+        <li>Deployed as a containerised Flask service with PostgreSQL, Alembic migrations, accounts, email
+          verification and a weekly digest driven by GitHub Actions.</li>
       </ul>
-      <div class="stack">
-        <span class="chip">Python</span><span class="chip">pandas</span><span class="chip">NumPy</span>
-        <span class="chip">SciPy</span><span class="chip">Flask</span><span class="chip">PostgreSQL</span>
-        <span class="chip">Docker</span><span class="chip">Alembic</span><span class="chip">openFDA API</span>
-        <span class="chip">GitHub Actions</span>
-      </div>
-      <div class="proj-links">
-        <a class="btn primary" href="https://reportscope.onrender.com/" target="_blank" rel="noopener">Open live site →</a>
+      <div class="stack"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">NumPy</span><span class="chip">SciPy</span><span class="chip">Flask</span><span class="chip">PostgreSQL</span><span class="chip">Docker</span><span class="chip">Alembic</span><span class="chip">openFDA API</span><span class="chip">GitHub Actions</span></div>
+      <div class="plinks">
+        <a class="btn pri" href="https://reportscope.onrender.com/" target="_blank" rel="noopener">Open live site →</a>
         <a class="btn" href="https://github.com/mor64ph/drug-safety-signal-detection" target="_blank" rel="noopener">Source</a>
       </div>
     </article>
 
-    <!-- Seizure detection -->
-    <article class="proj">
-      <div class="proj-top">
-        <h3>Cross-Patient Seizure Detection</h3>
-        <span class="tag live">Live</span>
-        <span class="tag">Clinical EEG</span>
-        <span class="tag">Machine Learning</span>
+    <!-- 02 Seizure -->
+    <article class="proj rv">
+      <div class="phead">
+        <span class="pnum">02</span>
+        <div class="ptitles">
+          <div class="trow"><h3>Cross-Patient Seizure Detection</h3><span class="tag">Clinical EEG</span><span class="tag">Machine Learning</span></div>
+          <p class="role">Machine learning on the CHB-MIT scalp EEG corpus</p>
+        </div>
       </div>
-      <p class="role">Machine learning on the CHB-MIT scalp EEG corpus</p>
-      <p class="desc">
-        Detecting epileptic seizures in scalp EEG for patients the model has never seen. The hard part is
-        not the classifier — it is building an evaluation you can trust when positives are three in a
-        thousand and every patient's brain looks different.
-      </p>
-      <div class="metrics">
-        <div class="metric"><div class="v">979.9 h</div><div class="k">EEG ingested</div></div>
-        <div class="metric"><div class="v">686 / 686</div><div class="k">files, 0 checksum failures</div></div>
-        <div class="metric"><div class="v">352,742</div><div class="k">labelled windows</div></div>
-        <div class="metric"><div class="v">0.31</div><div class="k">PR-AUC vs 0.004 baseline</div></div>
+      <p class="desc">Detecting epileptic seizures in scalp EEG for patients the model has never seen. The
+        hard part is not the classifier — it is building an evaluation you can trust when positives are three
+        in a thousand and every patient's brain looks different.</p>
+      <div class="mx">
+        <div class="m"><b>980 h</b><span>EEG ingested</span></div>
+        <div class="m"><b>686 / 686</b><span>files, 0 checksum failures</span></div>
+        <div class="m"><b>352,742</b><span>labelled windows</span></div>
+        <div class="m"><b>138</b><span>tests · 43 binding rules</span></div>
       </div>
-      <ul class="bullets">
-        <li>Built a <b>streaming ingest</b> for a 45 GB corpus under a 26 GB disk ceiling — download,
-            verify checksum, extract features, delete raw, checkpoint — peaking at 6.3 GB and completing
-            all 686 EDF files with zero checksum failures.</li>
-        <li>Evaluated under <b>leave-one-subject-out cross-validation</b> across 23 patients, and
-            quantified the cost of getting the protocol wrong: random splits inflate PR-AUC by
-            <b>0.18 to 0.40</b> depending on the feature view, so no single "inflation number" is quoted
-            for the dataset.</li>
+      <ul class="b">
+        <li>Built a <b>streaming ingest</b> for a 45 GB corpus under a 26 GB disk ceiling — download, verify
+          checksum, extract features, delete raw, checkpoint — peaking at 6.3 GB and completing all 686 EDF
+          files with zero checksum failures.</li>
+        <li>Evaluated under <b>leave-one-subject-out cross-validation</b> across 23 patients, reaching
+          <b>0.31 PR-AUC</b> against a 0.004 majority baseline, and quantified the cost of getting the
+          protocol wrong: random splits inflate PR-AUC by <b>0.18 to 0.40</b> depending on the feature view,
+          so no single inflation number is quoted for the dataset.</li>
         <li>Caught two metric traps that silently flatter a model. <b>Means-of-ratios:</b> fold-averaged
-            precision read 0.23 against a pooled 0.004 — a 62&times; gap — so metrics are pooled from
-            summed confusion counts. <b>Gameable false-alarm rates:</b> a <code>DummyClassifier</code>
-            scored 185 of 185 seizures at 0.89 alarms/hour because FA/h counts alarm <em>runs</em>, so
-            time-in-alarm is reported alongside it.</li>
-        <li>Established that threshold and run-length <b>cannot be tuned separately</b> — a sequentially
-            chosen pair detected nothing — and replaced it with a joint search.</li>
-        <li>Fixed three upstream data bugs the corpus hides: MNE silently renames duplicate channel
-            labels in 654 files, one summary file misattributes a seizure end time, and the WFDB
-            annotation <code>AUX</code> field is a byte length rather than a clock increment — each of
-            which corrupts labels without erroring.</li>
-        <li>Pipeline is governed by a binding <code>RULES.md</code> of 43 numbered rules and covered by
-            <b>138 tests</b>, with every measured constant recorded so it is never re-derived.</li>
+          precision read 0.23 against a pooled 0.004 — a 62× gap — so metrics are pooled from summed
+          confusion counts. <b>Gameable false-alarm rates:</b> a <code>DummyClassifier</code> scored 185 of
+          185 seizures at 0.89 alarms/hour because FA/h counts alarm <em>runs</em>, so time-in-alarm is
+          reported alongside.</li>
+        <li>Established that decision threshold and run-length <b>cannot be tuned separately</b> — a
+          sequentially chosen pair detected nothing — and replaced it with a joint search.</li>
+        <li>Fixed three upstream data bugs the corpus hides, each of which corrupts labels without erroring:
+          MNE silently renames duplicate channel labels in 654 files, one summary file misattributes a
+          seizure end time, and the WFDB <code>AUX</code> field is a byte length rather than a clock
+          increment.</li>
       </ul>
-      <div class="stack">
-        <span class="chip">Python</span><span class="chip">scikit-learn</span>
-        <span class="chip">HistGradientBoosting</span><span class="chip">Random Forest</span>
-        <span class="chip">NumPy</span><span class="chip">SciPy</span><span class="chip">MNE</span>
-        <span class="chip">WFDB</span><span class="chip">pytest</span><span class="chip">Parquet</span>
-      </div>
-      <div class="proj-links">
-        <a class="btn primary" href="https://eeg-seizure-detection-model.streamlit.app/" target="_blank" rel="noopener">Open live app →</a>
-        <a class="btn" href="https://github.com/mor64ph/Seizure-Detection-Model" target="_blank" rel="noopener">Source</a>
+      <div class="stack"><span class="chip">Python</span><span class="chip">scikit-learn</span><span class="chip">HistGradientBoosting</span><span class="chip">Random Forest</span><span class="chip">NumPy</span><span class="chip">SciPy</span><span class="chip">MNE</span><span class="chip">WFDB</span><span class="chip">Parquet</span><span class="chip">pytest</span></div>
+      <div class="plinks">
+        <a class="btn pri" href="https://github.com/mor64ph/Seizure-Detection-Model" target="_blank" rel="noopener">View source →</a>
       </div>
     </article>
 
-    <!-- ScoutIQ -->
-    <article class="proj">
-      <div class="proj-top">
-        <h3>ScoutIQ</h3>
-        <span class="tag live">Live</span>
-        <span class="tag">Sports Analytics</span>
+    <!-- 03 ScoutIQ -->
+    <article class="proj rv">
+      <div class="phead">
+        <span class="pnum">03</span>
+        <div class="ptitles">
+          <div class="trow"><h3>ScoutIQ</h3><span class="tag live">Live</span><span class="tag">Sports Analytics</span></div>
+          <p class="role">Football match outcome and scoreline prediction</p>
+        </div>
       </div>
-      <p class="role">Football match outcome and scoreline prediction</p>
-      <p class="desc">
-        A prediction engine for top-tier football, taken deliberately to its accuracy ceiling before
-        shipping. Elo supplies the outcome probabilities; a Dixon-Coles grid is rescaled onto them so
-        scorelines, expected goals and over/under markets can never contradict the match result.
-      </p>
-      <div class="metrics">
-        <div class="metric"><div class="v">3,504</div><div class="k">held-out test matches</div></div>
-        <div class="metric"><div class="v">0.9932</div><div class="k">Elo outcome log loss</div></div>
-        <div class="metric"><div class="v">0.025</div><div class="k">gap to the bookmaker line</div></div>
-        <div class="metric"><div class="v">Daily</div><div class="k">automated data refresh</div></div>
+      <p class="desc">A prediction engine for top-tier football, taken deliberately to its accuracy ceiling
+        before shipping. Elo supplies the outcome probabilities; a Dixon-Coles grid is rescaled onto them so
+        scorelines, expected goals and over/under markets can never contradict the match result.</p>
+      <div class="mx">
+        <div class="m"><b>3,504</b><span>held-out test matches</span></div>
+        <div class="m"><b>0.9932</b><span>Elo outcome log loss</span></div>
+        <div class="m"><b>0.025</b><span>measured gap to the market</span></div>
+        <div class="m"><b>Daily</b><span>automated data refresh</span></div>
       </div>
-      <ul class="bullets">
-        <li>Benchmarked <b>Elo, Dixon-Coles and XGBoost</b> on a fully held-out season, selecting on log
-            loss with <b>paired bootstrap significance tests</b> rather than point estimates — which
-            showed a 46-feature XGBoost was statistically indistinguishable from a 2-parameter Elo.</li>
-        <li>Measured that <b>blending bookmaker odds adds exactly nothing</b>: both linear and
-            logarithmic pooling selected weight 0.00 on validation. Odds are shown in the UI for
-            comparison and never used to alter a prediction.</li>
+      <ul class="b">
+        <li>Benchmarked <b>Elo, Dixon-Coles and XGBoost</b> on a fully held-out season, selecting on log loss
+          with <b>paired bootstrap significance tests</b> rather than point estimates — which showed a
+          46-feature XGBoost was statistically indistinguishable from a 2-parameter Elo.</li>
+        <li>Measured that <b>blending bookmaker odds adds exactly nothing</b>: both linear and logarithmic
+          pooling selected weight 0.00 on validation. Odds appear in the UI for comparison and never alter a
+          prediction.</li>
         <li>Mapped the remaining headroom instead of guessing at it — every feature-based avenue was
-            exhausted, leaving team news and lineups as the only live lever. <b>Knowing where the ceiling
-            is was the deliverable.</b></li>
+          exhausted, leaving team news as the only live lever. <b>Knowing where the ceiling is was the
+          deliverable.</b></li>
         <li>Serves from a <b>FastAPI</b> backend with a Vercel frontend, refreshed by a GitHub Actions job
-            that rebuilds Gold data and commits it back to trigger redeploy; a Databricks + Delta Lake
-            path exists for local model builds and is bypassed in production by design.</li>
+          that rebuilds Gold data and commits it back to trigger redeploy.</li>
         <li>Trimmed the deployed image to fit a 512 MB tier by pinning library versions to the environment
-            that wrote the model pickles and swapping <code>xgboost</code> for <code>xgboost-cpu</code>,
-            dropping 252 MB of unused CUDA payload.</li>
+          that wrote the model pickles and swapping <code>xgboost</code> for <code>xgboost-cpu</code>,
+          dropping 252 MB of unused CUDA payload.</li>
       </ul>
-      <div class="stack">
-        <span class="chip">Python</span><span class="chip">XGBoost</span><span class="chip">scikit-learn</span>
-        <span class="chip">MLflow</span><span class="chip">FastAPI</span><span class="chip">Databricks</span>
-        <span class="chip">Delta Lake</span><span class="chip">Power BI</span>
-        <span class="chip">GitHub Actions</span><span class="chip">Vercel</span>
-      </div>
-      <div class="proj-links">
-        <a class="btn primary" href="https://scoutiq-eta.vercel.app/" target="_blank" rel="noopener">Open live site →</a>
+      <div class="stack"><span class="chip">Python</span><span class="chip">XGBoost</span><span class="chip">scikit-learn</span><span class="chip">MLflow</span><span class="chip">FastAPI</span><span class="chip">Databricks</span><span class="chip">Delta Lake</span><span class="chip">Power BI</span><span class="chip">GitHub Actions</span><span class="chip">Vercel</span></div>
+      <div class="plinks">
+        <a class="btn pri" href="https://scoutiq-eta.vercel.app/" target="_blank" rel="noopener">Open live site →</a>
         <a class="btn" href="https://github.com/mor64ph/football-analytics-engine" target="_blank" rel="noopener">Source</a>
       </div>
     </article>
 
-    <!-- Compass -->
-    <article class="proj">
-      <div class="proj-top">
-        <h3>Compass</h3>
-        <span class="tag">LLM Application</span>
+    <!-- 04 Compass -->
+    <article class="proj rv">
+      <div class="phead">
+        <span class="pnum">04</span>
+        <div class="ptitles">
+          <div class="trow"><h3>Compass</h3><span class="tag">LLM Application</span></div>
+          <p class="role">AI job-search copilot with a provider-agnostic model layer</p>
+        </div>
       </div>
-      <p class="role">AI job-search copilot with a provider-agnostic model layer</p>
-      <p class="desc">
-        A copilot that scores how well a role fits a real CV, surfaces the gaps, and drafts tailored
-        applications. Built on the thesis that the job market has a volume problem rather than a tooling
-        problem — so it never scrapes a job board and never submits on your behalf.
-      </p>
-      <div class="metrics">
-        <div class="metric"><div class="v">3</div><div class="k">interchangeable LLM providers</div></div>
-        <div class="metric"><div class="v">Local</div><div class="k">embeddings, no API needed</div></div>
-        <div class="metric"><div class="v">Enforced</div><div class="k">constraints fail the build</div></div>
+      <p class="desc">A copilot that scores how well a role fits a real CV, surfaces the gaps, and drafts
+        tailored applications. Built on the thesis that the job market has a volume problem rather than a
+        tooling problem — so it never scrapes a job board and never submits on your behalf.</p>
+      <div class="mx">
+        <div class="m"><b>3</b><span>interchangeable LLM providers</span></div>
+        <div class="m"><b>Local</b><span>embeddings, no API key needed</span></div>
+        <div class="m"><b>Enforced</b><span>constraints fail the build</span></div>
       </div>
-      <ul class="bullets">
-        <li>Built a <b>provider-agnostic LLM layer</b> over Anthropic, Google Gemini and Ollama, so the
-            app moves between hosted and fully local models without a single change at the call sites —
-            and degrades gracefully when a provider's free tier withdraws a capability.</li>
+      <ul class="b">
+        <li>Built a <b>provider-agnostic LLM layer</b> over Anthropic, Google Gemini and Ollama, so the app
+          moves between hosted and fully local models without a single change at the call sites — and
+          degrades gracefully when a provider's free tier withdraws a capability.</li>
         <li>Scored job-description fit with <b>all-MiniLM-L6-v2 sentence embeddings</b> running locally,
-            falling back to a lexical similarity backend when the model is unavailable, so the core
-            feature never hard-depends on a download or a key.</li>
-        <li>Encoded the product's ethical constraints as <b>executable tests</b>: the suite fails the build
-            on a banned scraping library, a restricted-platform URL, a submit-shaped route, or an LLM call
-            appearing inside the deterministic quality gate.</li>
-        <li>Kept the <b>quality gate and ATS checker free of model calls</b> by design — they are the brake
-            on the system, so their behaviour has to be reproducible rather than sampled.</li>
-        <li>Parses and rewrites résumés across PDF and DOCX with layout introspection, exporting
-            ATS-safe documents.</li>
+          falling back to a lexical similarity backend when the model is unavailable, so the core feature
+          never hard-depends on a download or a key.</li>
+        <li>Encoded the product's ethical constraints as <b>executable tests</b>: the suite fails the build on
+          a banned scraping library, a restricted-platform URL, a submit-shaped route, or an LLM call
+          appearing inside the deterministic quality gate.</li>
+        <li>Kept the <b>quality gate and ATS checker free of model calls</b> by design — they are the brake on
+          the system, so their behaviour has to be reproducible rather than sampled.</li>
+        <li>Parses and rewrites résumés across PDF and DOCX with layout introspection, exporting ATS-safe
+          documents.</li>
       </ul>
-      <div class="stack">
-        <span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">SQLAlchemy</span>
-        <span class="chip">sentence-transformers</span><span class="chip">Anthropic</span>
-        <span class="chip">Gemini</span><span class="chip">Ollama</span><span class="chip">HTMX</span>
-        <span class="chip">SQLite</span><span class="chip">pytest</span>
-      </div>
-      <div class="proj-links">
-        <a class="btn primary" href="https://github.com/mor64ph/ai-jobsearch-engine" target="_blank" rel="noopener">Source →</a>
+      <div class="stack"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">HTMX</span><span class="chip">SQLAlchemy</span><span class="chip">sentence-transformers</span><span class="chip">Anthropic</span><span class="chip">Gemini</span><span class="chip">Ollama</span><span class="chip">SQLite</span><span class="chip">pytest</span></div>
+      <div class="plinks">
+        <a class="btn pri" href="https://github.com/mor64ph/ai-jobsearch-engine" target="_blank" rel="noopener">View source →</a>
       </div>
     </article>
   </div>
@@ -414,55 +492,59 @@ svg.i{width:15px; height:15px; flex:none; stroke:currentColor; fill:none; stroke
 
 <section id="experience">
   <div class="wrap">
-    <h2>Experience</h2>
-    <p class="h2sub">Production data engineering for enterprise clients.</p>
+    <div class="rv">
+      <p class="kicker">Experience</p>
+      <h2>Production data engineering for enterprise clients.</h2>
+      <p class="sublede">Two years at Accenture on Azure Databricks, preceded by two internships in cloud and
+        database engineering.</p>
+    </div>
 
-    <div class="job">
+    <div class="job rv">
       <div class="when">Sep 2024 — Present</div>
       <div>
         <h3>Data Engineer — Packaged App Development Associate</h3>
         <p class="org">Accenture · Bangalore</p>
-        <ul class="bullets">
-          <li>Built <b>Bronze → Silver → Gold</b> Delta pipelines on Azure Databricks using config-driven
-              YAML with PySpark and Spark SQL, replacing per-source hardcoded jobs with one reusable
-              ingestion pattern across an industrial IoT programme and a UK financial-services client.</li>
+        <ul class="b">
+          <li>Built <b>Bronze → Silver → Gold</b> Delta pipelines on Azure Databricks using config-driven YAML
+            with PySpark and Spark SQL, replacing per-source hardcoded jobs with one reusable ingestion
+            pattern across an industrial IoT programme and a UK financial-services client.</li>
           <li>Designed <b>star-schema Gold models</b> and unified heterogeneous per-equipment tag schemas
-              through canonical renaming and <code>unionByName</code>, giving downstream consumers one
-              conformed grain instead of raw per-equipment tables.</li>
+            through canonical renaming and <code>unionByName</code>, giving downstream consumers one conformed
+            grain instead of raw per-equipment tables.</li>
           <li>Diagnosed and resolved a source-table migration serving stale data, then built validation
-              notebooks enforcing <b>grain, reconciliation and null-threshold checks</b> to block bad loads
-              from reaching Gold.</li>
+            notebooks enforcing <b>grain, reconciliation and null-threshold checks</b> to block bad loads from
+            reaching Gold.</li>
           <li>Delivered enterprise <b>Power BI semantic models</b> with reusable DAX measure libraries and
-              dynamic row-level security through Entra ID, from requirement through UAT into production.</li>
+            dynamic row-level security through Entra ID, from requirement through UAT into production.</li>
           <li>Translated client SME reporting requirements into pipeline and model design decisions, and
-              documented pipeline logic and data definitions to support handover.</li>
+            documented pipeline logic and data definitions to support handover.</li>
         </ul>
       </div>
     </div>
 
-    <div class="job">
+    <div class="job rv">
       <div class="when">Feb 2023 — Aug 2023</div>
       <div>
         <h3>Database Management Intern</h3>
         <p class="org">T-Web Exponent Services</p>
-        <ul class="bullets">
-          <li>Optimised relational and NoSQL databases and tuned SQL queries to improve query performance,
-              and integrated backend APIs for low-latency data flow between services.</li>
+        <ul class="b">
+          <li>Optimised relational and NoSQL databases and tuned SQL queries to improve query performance, and
+            integrated backend APIs for low-latency data flow between services.</li>
           <li>Migrated on-premise database infrastructure to cloud, improving reliability and uptime.</li>
         </ul>
       </div>
     </div>
 
-    <div class="job">
+    <div class="job rv">
       <div class="when">Jul 2022 — Jan 2023</div>
       <div>
         <h3>AWS Solutions Intern</h3>
         <p class="org">T-Web Exponent Services</p>
-        <ul class="bullets">
-          <li>Engineered <b>AWS Glue ETL</b> jobs automating data transforms, improving throughput
-              <b>20%</b> over a three-month project.</li>
+        <ul class="b">
+          <li>Engineered <b>AWS Glue ETL</b> jobs automating data transforms, improving throughput <b>20%</b>
+            over a three-month project.</li>
           <li>Deployed S3, EC2, Lambda and Athena, and implemented IAM roles giving services controlled
-              cross-service access.</li>
+            cross-service access.</li>
         </ul>
       </div>
     </div>
@@ -471,63 +553,32 @@ svg.i{width:15px; height:15px; flex:none; stroke:currentColor; fill:none; stroke
 
 <section id="skills">
   <div class="wrap">
-    <h2>Skills</h2>
-    <p class="h2sub">What I reach for.</p>
-    <div class="skills">
-      <div class="sk"><h4>Languages</h4><div class="items">
-        <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">Java</span><span class="chip">JavaScript</span>
-      </div></div>
-      <div class="sk"><h4>Data Engineering</h4><div class="items">
-        <span class="chip">PySpark</span><span class="chip">Spark SQL</span><span class="chip">Delta Lake</span>
-        <span class="chip">Medallion Architecture</span><span class="chip">ETL / ELT</span><span class="chip">Airflow</span>
-        <span class="chip">Parquet</span><span class="chip">Data Quality</span><span class="chip">Data Validation</span>
-      </div></div>
-      <div class="sk"><h4>Machine Learning</h4><div class="items">
-        <span class="chip">scikit-learn</span><span class="chip">XGBoost</span><span class="chip">MLflow</span>
-        <span class="chip">pandas</span><span class="chip">NumPy</span><span class="chip">SciPy</span>
-        <span class="chip">Feature Engineering</span><span class="chip">Cross-Validation</span>
-        <span class="chip">Model Evaluation</span><span class="chip">Class Imbalance</span>
-      </div></div>
-      <div class="sk"><h4>AI &amp; LLM</h4><div class="items">
-        <span class="chip">LLM API Integration</span><span class="chip">Anthropic</span><span class="chip">Gemini</span>
-        <span class="chip">Ollama</span><span class="chip">Sentence Transformers</span>
-        <span class="chip">Vector Embeddings</span><span class="chip">Semantic Search</span>
-        <span class="chip">Prompt Engineering</span>
-      </div></div>
-      <div class="sk"><h4>Modelling &amp; Warehousing</h4><div class="items">
-        <span class="chip">Dimensional Modelling</span><span class="chip">Star Schema</span>
-        <span class="chip">Gold-Layer Design</span><span class="chip">Amazon Redshift</span>
-        <span class="chip">Amazon Athena</span>
-      </div></div>
-      <div class="sk"><h4>Cloud</h4><div class="items">
-        <span class="chip">Azure Databricks</span><span class="chip">ADLS Gen2</span><span class="chip">Unity Catalog</span>
-        <span class="chip">Entra ID</span><span class="chip">AWS S3</span><span class="chip">Glue</span>
-        <span class="chip">Lambda</span><span class="chip">EC2</span><span class="chip">IAM</span>
-        <span class="chip">Render</span><span class="chip">Vercel</span><span class="chip">BigQuery (learning)</span>
-      </div></div>
-      <div class="sk"><h4>Backend &amp; Databases</h4><div class="items">
-        <span class="chip">FastAPI</span><span class="chip">Flask</span><span class="chip">REST APIs</span>
-        <span class="chip">SQLAlchemy</span><span class="chip">Alembic</span><span class="chip">PostgreSQL</span>
-        <span class="chip">MySQL</span><span class="chip">NoSQL</span>
-      </div></div>
-      <div class="sk"><h4>BI &amp; Reporting</h4><div class="items">
-        <span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">Power Query</span>
-        <span class="chip">Row-Level Security</span><span class="chip">RBAC</span><span class="chip">Tableau</span>
-      </div></div>
-      <div class="sk"><h4>Tools &amp; Practices</h4><div class="items">
-        <span class="chip">Git</span><span class="chip">GitHub Actions</span><span class="chip">CI/CD</span>
-        <span class="chip">Docker</span><span class="chip">pytest</span><span class="chip">JIRA</span>
-        <span class="chip">Confluence</span><span class="chip">Agile</span>
-      </div></div>
+    <div class="rv">
+      <p class="kicker">Toolkit</p>
+      <h2>What I reach for.</h2>
+      <p class="sublede">Everything listed here appears in shipped work above or in production at Accenture.</p>
+    </div>
+    <div class="sk rv">
+      <div class="skc"><h4>Languages</h4><div><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">Java</span><span class="chip">JavaScript</span></div></div>
+      <div class="skc"><h4>Data Engineering</h4><div><span class="chip">PySpark</span><span class="chip">Spark SQL</span><span class="chip">Delta Lake</span><span class="chip">Medallion Architecture</span><span class="chip">ETL / ELT</span><span class="chip">Airflow</span><span class="chip">Parquet</span><span class="chip">Data Quality</span></div></div>
+      <div class="skc"><h4>Machine Learning</h4><div><span class="chip">scikit-learn</span><span class="chip">XGBoost</span><span class="chip">MLflow</span><span class="chip">pandas</span><span class="chip">NumPy</span><span class="chip">SciPy</span><span class="chip">Feature Engineering</span><span class="chip">Cross-Validation</span><span class="chip">Model Evaluation</span></div></div>
+      <div class="skc"><h4>AI &amp; LLM</h4><div><span class="chip">LLM API Integration</span><span class="chip">Anthropic</span><span class="chip">Gemini</span><span class="chip">Ollama</span><span class="chip">Sentence Transformers</span><span class="chip">Vector Embeddings</span><span class="chip">Semantic Search</span></div></div>
+      <div class="skc"><h4>Modelling &amp; Warehousing</h4><div><span class="chip">Dimensional Modelling</span><span class="chip">Star Schema</span><span class="chip">Gold-Layer Design</span><span class="chip">Amazon Redshift</span><span class="chip">Amazon Athena</span></div></div>
+      <div class="skc"><h4>Cloud</h4><div><span class="chip">Azure Databricks</span><span class="chip">ADLS Gen2</span><span class="chip">Unity Catalog</span><span class="chip">Entra ID</span><span class="chip">AWS S3</span><span class="chip">Glue</span><span class="chip">Lambda</span><span class="chip">EC2</span><span class="chip">IAM</span><span class="chip">Render</span><span class="chip">Vercel</span></div></div>
+      <div class="skc"><h4>Backend &amp; Databases</h4><div><span class="chip">FastAPI</span><span class="chip">Flask</span><span class="chip">REST APIs</span><span class="chip">SQLAlchemy</span><span class="chip">Alembic</span><span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">NoSQL</span></div></div>
+      <div class="skc"><h4>BI &amp; Reporting</h4><div><span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">Power Query</span><span class="chip">Row-Level Security</span><span class="chip">RBAC</span><span class="chip">Tableau</span></div></div>
+      <div class="skc"><h4>Tools &amp; Practices</h4><div><span class="chip">Git</span><span class="chip">GitHub Actions</span><span class="chip">CI/CD</span><span class="chip">Docker</span><span class="chip">pytest</span><span class="chip">JIRA</span><span class="chip">Agile</span></div></div>
     </div>
   </div>
 </section>
 
 <section id="education">
   <div class="wrap">
-    <h2>Education</h2>
-    <p class="h2sub">Bachelor of Technology, Electronics and Communication Engineering</p>
-    <div class="job">
+    <div class="rv">
+      <p class="kicker">Education</p>
+      <h2>Electronics &amp; Communication Engineering.</h2>
+    </div>
+    <div class="job rv">
       <div class="when">2020 — 2024</div>
       <div>
         <h3>B.Tech, Electronics and Communication Engineering</h3>
@@ -541,10 +592,29 @@ svg.i{width:15px; height:15px; flex:none; stroke:currentColor; fill:none; stroke
   </div>
 </section>
 
+<section id="contact">
+  <div class="wrap">
+    <div class="rv">
+      <p class="kicker">Contact</p>
+      <h2>Let's talk.</h2>
+      <p class="sublede">Open to Data Engineering and Machine Learning roles. The fastest way to reach me is
+        email — I read everything.</p>
+      <div class="cta">
+        <a class="btn pri" href="mailto:hrisitbiswas80@gmail.com">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2.5"/><path d="m2.5 7.5 9.5 6 9.5-6"/></svg> hrisitbiswas80@gmail.com
+        </a>
+        <a class="btn" href="https://linkedin.com/in/hrisit-biswas" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/mor64ph" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
 <footer>
   <div class="wrap">
-    <span>© 2026 Hrisit Biswas</span>
-    <span class="spacer"></span>
+    <span>© 2026 Hrisit Biswas · Bangalore, India</span>
+    <span class="push"></span>
     <a href="mailto:hrisitbiswas80@gmail.com">Email</a>
     <a href="https://linkedin.com/in/hrisit-biswas" target="_blank" rel="noopener">LinkedIn</a>
     <a href="https://github.com/mor64ph" target="_blank" rel="noopener">GitHub</a>
@@ -553,20 +623,58 @@ svg.i{width:15px; height:15px; flex:none; stroke:currentColor; fill:none; stroke
 
 <script>
 (function(){
-  var KEY = "hb-portfolio-theme";
-  var root = document.documentElement;
-  var saved = null;
-  try { saved = localStorage.getItem(KEY); } catch(e) {}
-  if (saved) {
-    root.setAttribute("data-theme", saved);
-  } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
-    root.setAttribute("data-theme", "light");
-  }
-  document.getElementById("themeBtn").addEventListener("click", function(){
-    var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-    root.setAttribute("data-theme", next);
-    try { localStorage.setItem(KEY, next); } catch(e) {}
+  "use strict";
+  var root=document.documentElement, KEY="hb-theme";
+  /* theme */
+  try{ var s=localStorage.getItem(KEY);
+    if(s){ root.setAttribute("data-theme",s); }
+    else if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches){ root.setAttribute("data-theme","light"); }
+  }catch(e){}
+  document.getElementById("theme").addEventListener("click",function(){
+    var n=root.getAttribute("data-theme")==="dark"?"light":"dark";
+    root.setAttribute("data-theme",n);
+    var m=document.querySelector('meta[name="theme-color"]');
+    if(m) m.setAttribute("content", n==="dark"?"#0a0e13":"#fcfdfe");
+    try{ localStorage.setItem(KEY,n); }catch(e){}
   });
+
+  /* scroll progress + nav shadow */
+  var bar=document.getElementById("bar"), nav=document.getElementById("nav"), ticking=false;
+  function onScroll(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?(window.scrollY/h)*100:0)+"%";
+    nav.classList.toggle("stuck", window.scrollY>8);
+    ticking=false;
+  }
+  window.addEventListener("scroll",function(){
+    if(!ticking){ window.requestAnimationFrame(onScroll); ticking=true; }
+  },{passive:true});
+  onScroll();
+
+  /* reveal on scroll */
+  var rv=document.querySelectorAll(".rv");
+  if("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+    var ro=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); ro.unobserve(e.target); } });
+    },{rootMargin:"0px 0px -8% 0px",threshold:.06});
+    rv.forEach(function(el){ ro.observe(el); });
+  } else {
+    rv.forEach(function(el){ el.classList.add("in"); });
+  }
+
+  /* active nav link */
+  var links=[].slice.call(document.querySelectorAll(".nl"));
+  var secs=links.map(function(a){ return document.querySelector(a.getAttribute("href")); }).filter(Boolean);
+  if("IntersectionObserver" in window && secs.length){
+    var so=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          links.forEach(function(a){ a.classList.toggle("on", a.getAttribute("href")==="#"+e.target.id); });
+        }
+      });
+    },{rootMargin:"-45% 0px -50% 0px"});
+    secs.forEach(function(s){ so.observe(s); });
+  }
 })();
 </script>
 </body>
