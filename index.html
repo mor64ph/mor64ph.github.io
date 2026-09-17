@@ -370,13 +370,14 @@ footer .wrap{gap:4px 18px}
       <div class="phead">
         <span class="pnum">02</span>
         <div class="ptitles">
-          <div class="trow"><h3>Cross-Patient Seizure Detection</h3><span class="tag">Clinical EEG</span><span class="tag">Machine Learning</span></div>
+          <div class="trow"><h3>Cross-Patient Seizure Detection</h3><span class="tag live">Live</span><span class="tag">Clinical EEG</span><span class="tag">Machine Learning</span></div>
           <p class="role">Machine learning on the CHB-MIT scalp EEG corpus</p>
         </div>
       </div>
       <p class="desc">Detecting epileptic seizures in scalp EEG for patients the model has never seen. The
         hard part is not the classifier — it is building an evaluation you can trust when positives are three
-        in a thousand and every patient's brain looks different.</p>
+        in a thousand and every patient's brain looks different. The live app runs the full pipeline on a
+        recording in the browser — load the bundled sample to see it end to end, no upload needed.</p>
       <div class="mx">
         <div class="m"><b>980 h</b><span>EEG ingested</span></div>
         <div class="m"><b>686 / 686</b><span>files, 0 checksum failures</span></div>
@@ -405,7 +406,8 @@ footer .wrap{gap:4px 18px}
       </ul>
       <div class="stack"><span class="chip">Python</span><span class="chip">scikit-learn</span><span class="chip">HistGradientBoosting</span><span class="chip">Random Forest</span><span class="chip">NumPy</span><span class="chip">SciPy</span><span class="chip">MNE</span><span class="chip">WFDB</span><span class="chip">Parquet</span><span class="chip">pytest</span></div>
       <div class="plinks">
-        <a class="btn pri" href="https://github.com/mor64ph/Seizure-Detection-Model" target="_blank" rel="noopener">View source →</a>
+        <a class="btn pri" href="https://eeg-seizure-detection-model.streamlit.app/" target="_blank" rel="noopener">Open live app →</a>
+        <a class="btn" href="https://github.com/mor64ph/Seizure-Detection-Model" target="_blank" rel="noopener">Source</a>
       </div>
     </article>
 
