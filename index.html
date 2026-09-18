@@ -340,18 +340,23 @@ footer .wrap{gap:4px 18px}
         <div class="m"><b>33,852</b><span>scored drug–reaction pairs</span></div>
         <div class="m"><b>361</b><span>drugs · 305 molecules</span></div>
         <div class="m"><b>20.7M</b><span>FAERS reports scanned</span></div>
-        <div class="m"><b>22 / 22</b><span>known-answer controls pass</span></div>
+        <div class="m"><b>13 / 13</b><span>known-answer controls pass</span></div>
       </div>
       <ul class="b">
         <li>Implemented <b>BCPNN and MGPS</b> disproportionality scoring with empirical-Bayes shrinkage —
           five hyperparameters fitted by MLE across all 33,852 cells, so the prior is learned from the data
           rather than assumed.</li>
-        <li>Validated against a <b>known-answer harness</b>: reproduces the statin–rhabdomyolysis reporting
-          odds ratio of <b>12.96</b>, and independently recovered cerivastatin — withdrawn in 2001 — as the
-          highest-scoring statin without being told.</li>
-        <li>Engineered around hard API limits: <b>date-partitioned</b> the query space to defeat a
-          25,000-record pagination cap, and collected severity outcomes in <b>1,444 calls instead of
-          135,408</b> by bucketing reactions per drug per outcome.</li>
+        <li>Validated against a <b>known-answer harness</b> of 9 positive and 4 negative controls:
+          reproduces the statin–rhabdomyolysis reporting odds ratio of <b>12.95</b>, and independently
+          recovered cerivastatin — withdrawn in 2001 — as the highest-scoring statin without being told.</li>
+        <li>Shipped a fast severity query, then <b>measured that it was silently wrong</b> — a 1,000-bucket
+          response cap stored absent terms as zero, so atorvastatin × type 2 diabetes recorded 0
+          hospitalisations against a true 792. Replaced it with a chunked design costing <b>11,968 calls
+          instead of 1,444</b>: eight times slower, and exact for every pair.</li>
+        <li>Built an <b>interaction module</b>, validated it against 12 drug interactions with settled
+          answers, watched it fail all twelve because the multiplicative independence baseline is
+          unreachable when both drugs already associate with the reaction — then deleted it rather than
+          ship numbers that look plausible and are wrong.</li>
         <li>Built an <b>active-comparator diagnostic</b> separating molecule effects from delivery artifacts —
           exenatide device leakage collapses from 36.23 to 1.01, showing the signal was the injector, not
           the drug.</li>
@@ -382,16 +387,18 @@ footer .wrap{gap:4px 18px}
         <div class="m"><b>980 h</b><span>EEG ingested</span></div>
         <div class="m"><b>686 / 686</b><span>files, 0 checksum failures</span></div>
         <div class="m"><b>352,742</b><span>labelled windows</span></div>
-        <div class="m"><b>138</b><span>tests · 43 binding rules</span></div>
+        <div class="m"><b>142</b><span>tests · 44 binding rules</span></div>
       </div>
       <ul class="b">
         <li>Built a <b>streaming ingest</b> for a 45 GB corpus under a 26 GB disk ceiling — download, verify
           checksum, extract features, delete raw, checkpoint — peaking at 6.3 GB and completing all 686 EDF
           files with zero checksum failures.</li>
         <li>Evaluated under <b>leave-one-subject-out cross-validation</b> across 23 patients, reaching
-          <b>0.31 PR-AUC</b> against a 0.004 majority baseline, and quantified the cost of getting the
-          protocol wrong: random splits inflate PR-AUC by <b>0.18 to 0.40</b> depending on the feature view,
-          so no single inflation number is quoted for the dataset.</li>
+          <b>0.31 PR-AUC</b> against a 0.004 majority baseline, and measured the cost of getting the
+          protocol wrong per model and feature view: from <b>−0.10 to +0.40</b>. Boosted trees on
+          per-channel features inflate most; logistic regression on aggregated features gets
+          <em>worse</em> under a random split — which is why no single inflation number is quoted for a
+          dataset.</li>
         <li>Caught two metric traps that silently flatter a model. <b>Means-of-ratios:</b> fold-averaged
           precision read 0.23 against a pooled 0.004 — a 62× gap — so metrics are pooled from summed
           confusion counts. <b>Gameable false-alarm rates:</b> a <code>DummyClassifier</code> scored 185 of
@@ -468,19 +475,24 @@ footer .wrap{gap:4px 18px}
         page rather than a shared demo.</p>
       <div class="mx">
         <div class="m"><b>3</b><span>interchangeable LLM providers</span></div>
-        <div class="m"><b>Local</b><span>embeddings, no API key needed</span></div>
-        <div class="m"><b>Enforced</b><span>constraints fail the build</span></div>
+        <div class="m"><b>5</b><span>constraints enforced by tests</span></div>
+        <div class="m"><b>1</b><span>outbound call site, asserted</span></div>
       </div>
       <ul class="b">
         <li>Built a <b>provider-agnostic LLM layer</b> over Anthropic, Google Gemini and Ollama, so the app
           moves between hosted and fully local models without a single change at the call sites — and
           degrades gracefully when a provider's free tier withdraws a capability.</li>
-        <li>Scored job-description fit with <b>all-MiniLM-L6-v2 sentence embeddings</b> running locally,
-          falling back to a lexical similarity backend when the model is unavailable, so the core feature
-          never hard-depends on a download or a key.</li>
-        <li>Encoded the product's ethical constraints as <b>executable tests</b>: the suite fails the build on
-          a banned scraping library, a restricted-platform URL, a submit-shaped route, or an LLM call
-          appearing inside the deterministic quality gate.</li>
+        <li>Scored job-description fit with <b>all-MiniLM-L6-v2 sentence embeddings</b> locally, falling
+          back to a lexical backend when the model is absent — which is what the 512 MB free-tier
+          deployment actually runs, since the embedding model pulls in 1.1 GB of torch. The fallback path
+          exists because the hosting constraint was real, not hypothetical.</li>
+        <li>Encoded the product's constraints as <b>five executable tests</b>: the suite fails on a banned
+          scraping library, a restricted-platform URL, a submit-shaped route, or an LLM call appearing
+          inside the deterministic quality gate. Enforcement is a regex sweep over comment-stripped
+          source, which is a known limitation — <code>scripts/</code> is outside the scanned tree.</li>
+        <li>Reduced "we do not scrape" from a policy to a <b>structural property</b>: one test counts
+          outbound call sites across the discovery package and asserts there is exactly one, and a second
+          test pins the host allowlist that site checks.</li>
         <li>Kept the <b>quality gate and ATS checker free of model calls</b> by design — they are the brake on
           the system, so their behaviour has to be reproducible rather than sampled.</li>
         <li>Parses and rewrites résumés across PDF and DOCX with layout introspection, exporting ATS-safe
@@ -561,7 +573,8 @@ footer .wrap{gap:4px 18px}
     <div class="rv">
       <p class="kicker">Toolkit</p>
       <h2>What I reach for.</h2>
-      <p class="sublede">Everything listed here appears in shipped work above or in production at Accenture.</p>
+      <p class="sublede">Bold groups are what I use daily and would be happy to be tested on cold. The rest
+        I have worked with and can discuss honestly, including where my experience stops.</p>
     </div>
     <div class="sk rv">
       <div class="skc"><h4>Languages</h4><div><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">Java</span><span class="chip">JavaScript</span></div></div>
