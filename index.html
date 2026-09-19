@@ -29,7 +29,6 @@
 "url":"https://mor64ph.github.io/",
 "address":{"@type":"PostalAddress","addressLocality":"Bangalore","addressCountry":"IN"},
 "alumniOf":{"@type":"CollegeOrUniversity","name":"Narula Institute of Technology"},
-"worksFor":{"@type":"Organization","name":"Accenture"},
 "knowsAbout":["Data Engineering","Apache Spark","Azure Databricks","Machine Learning","Delta Lake","Python","SQL"],
 "sameAs":["https://github.com/mor64ph","https://linkedin.com/in/hrisit-biswas"]}
 </script>
@@ -330,13 +329,6 @@ footer .wrap{gap:4px 18px}
         <li>A <b>known-answer harness</b> of 9 positive and 4 negative controls. It reproduces the
           statin–rhabdomyolysis reporting odds ratio of <b>12.95</b>, and it picked out cerivastatin,
           withdrawn in 2001, as the highest-scoring statin without being told to.</li>
-        <li>Shipped a fast severity query, then found it was <b>quietly wrong</b>. A 1,000-bucket response
-          cap stored absent terms as zero, so atorvastatin × type 2 diabetes reported 0 hospitalisations
-          when the real number was 792. The chunked replacement costs <b>11,968 API calls instead of
-          1,444</b>. Eight times slower and correct.</li>
-        <li>Built an <b>interaction module</b> and tested it against 12 drug pairs with settled answers. It
-          failed all twelve, because the multiplicative independence baseline is unreachable when both
-          drugs already associate with the reaction. Deleted it.</li>
         <li>An <b>active-comparator diagnostic</b> that separates molecule effects from delivery artifacts.
           Exenatide device leakage drops from 36.23 to 1.01 against the right control. The signal was the
           injector, not the drug.</li>
@@ -370,8 +362,6 @@ footer .wrap{gap:4px 18px}
         <div class="m"><b>142</b><span>tests · 44 binding rules</span></div>
       </div>
       <ul class="b">
-        <li>A <b>streaming ingest</b> that fits a 45 GB corpus under a 26 GB disk ceiling. Download,
-          checksum, extract features, delete the raw file, checkpoint. Peak usage was 6.3 GB.</li>
         <li><b>Leave-one-subject-out cross-validation</b> across 23 patients, reaching <b>0.31 PR-AUC</b>
           against a 0.004 baseline. Getting the protocol wrong is worth anywhere from <b>−0.10 to +0.40</b>
           depending on the model, so there is no one number to quote for a dataset.</li>
@@ -416,12 +406,8 @@ footer .wrap{gap:4px 18px}
           statistically indistinguishable from a 2-parameter Elo.</li>
         <li><b>Blending bookmaker odds adds nothing.</b> Linear and logarithmic pooling both selected weight
           0.00 on validation. The odds are still in the UI, they just do not touch the prediction.</li>
-        <li>Worked through the remaining feature ideas until they ran out. What is left is team news, and I
-          do not have a feed for that.</li>
         <li>Serves from a <b>FastAPI</b> backend with a Vercel frontend, refreshed by a GitHub Actions job
           that rebuilds Gold data and commits it back to trigger a redeploy.</li>
-        <li>Squeezed the deployed image into a 512 MB tier, mostly by swapping <code>xgboost</code> for its
-          CPU-only build and dropping 252 MB of CUDA nothing was using.</li>
       </ul>
       <div class="stack"><span class="chip">Python</span><span class="chip">XGBoost</span><span class="chip">scikit-learn</span><span class="chip">MLflow</span><span class="chip">FastAPI</span><span class="chip">Databricks</span><span class="chip">Delta Lake</span><span class="chip">Power BI</span><span class="chip">GitHub Actions</span><span class="chip">Vercel</span></div>
       <div class="plinks">
@@ -453,15 +439,11 @@ footer .wrap{gap:4px 18px}
           fully local models without touching a call site. Useful when a free tier quietly drops a
           capability on you.</li>
         <li>Job-fit scoring runs on <b>local sentence embeddings</b>, with a lexical fallback for when the
-          model is not there. The free tier is 512 MB and torch alone is 1.1 GB, so the live deployment is
-          running the fallback.</li>
+          model is not there. The hosted demo runs the fallback.</li>
         <li>The product constraints are <b>five tests</b>. The suite fails on a banned scraping library, a
-          restricted-platform URL, a submit-shaped route, or a model call inside the quality gate. It is a
-          regex sweep over the source, so it is not airtight.</li>
+          restricted-platform URL, a submit-shaped route, or a model call inside the quality gate.</li>
         <li>One test counts the outbound call sites in the discovery package and asserts there is exactly
           one. Another pins the allowlist that site checks against.</li>
-        <li>The <b>quality gate and ATS checker never call a model.</b> They are the part that says no, so
-          they need to give the same answer twice.</li>
         <li>Parses and rewrites résumés across PDF and DOCX with layout introspection, exporting ATS-safe
           documents.</li>
       </ul>
@@ -568,10 +550,6 @@ footer .wrap{gap:4px 18px}
       <div>
         <h3>B.Tech, Electronics and Communication Engineering</h3>
         <p class="org">Narula Institute of Technology · Kolkata</p>
-        <p style="color:var(--ink-2); margin:0; font-size:14.5px; max-width:70ch">
-          Signal processing was the part of the degree that stuck, which is probably why I ended up
-          with an EEG project.
-        </p>
       </div>
     </div>
   </div>
